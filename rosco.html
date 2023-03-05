@@ -1,0 +1,59 @@
+<html lang="es">
+
+<head>
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Juego del Rosco</title>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <h1>Bienvenidos al juego del rosco</h1>
+  <div class="marco">
+    <div class="tablero" id="tablero">
+      <div id="playername"></div>
+      <span id="timercontainer" class="timercontainerPause"></span>
+      <div id="innerTablero"></div>
+    </div>
+    <div id="entrada" class="entrada">
+      <table id="inputtable" class="inputtable">
+        <tr>
+          <td>Ingrese nombre Jugador 1:</td>
+          <td><input type="text" id="nombre1" /></td>
+        </tr>
+        <tr>
+          <td>Ingrese tiempo Jugador 1:</td>
+          <td><input type="number" id="tiempo1" /></td>
+        </tr>
+        <tr>
+          <td>Ingrese nombre Jugador 2:</td>
+          <td><input type="text" id="nombre2" /></td>
+        </tr>
+        <tr>
+          <td>Ingrese tiempo Jugador 2:</td>
+          <td><input type="number" id="tiempo2" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="button" id="cargar" value="Cargar" onClick="main()" />
+          </td>
+        </tr>
+      </table>
+      <br />
+      <div id="datos" class="datos"></div>
+      <div id="botonInicio" hidden="true">
+        <p class="datos">
+          Para iniciar, pulse el boton de abajo.<br />
+          Q: Pasapalabra <br />
+          W: Correcta <br />
+          E: Incorrecta <br />
+          R o Space: Reanudar despues de una pausa
+        </p>
+        <input type="button" id="iniciar" value="Iniciar partida" onclick="iniciar()" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
