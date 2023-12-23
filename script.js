@@ -134,31 +134,28 @@ class Rosco {
     let radius;
     let xpos;
     let ypos;
+
+    // Centerx y Centery capturan el centro del div 
     let centerx = Math.round(
       document.getElementById("tablero").getBoundingClientRect().width / 2.0
     );
     let centery = Math.round(
       document.getElementById("tablero").getBoundingClientRect().height / 2.0
     );
+
+    //Establece el radio minimo para calcular la posicion de las letras
     if (centery >= centerx) {
       radius = Math.round(parseFloat(centerx) * 0.85);
     } else {
       radius = Math.round(parseFloat(centery) * 0.85);
     }
+    //El for imprime letra por letra EL coseno se encarga de la posicion en Y y el seno en X
+    // El 30 y 45 es para tener en cuenta el ancho de los circulos en los que van las letras
     for (let x = 0; x < this.rosco.length; x++) {
       let cosinus = Math.cos((x / this.rosco.length + 1 / 48) * Math.PI * 2);
       ypos = Math.round(radius * cosinus * -1) + centery + 45;
       let sinus = Math.sin((x / this.rosco.length + 1 / 48) * Math.PI * 2);
       xpos = Math.round(radius * sinus) + centerx - 30;
-      /* if (x % 4 == 0)
-                this.rosco[x].estado = EstadoLetra.NEUTRO;
-            if (x % 4 == 1)
-                this.rosco[x].estado = EstadoLetra.PASAPALABRA;
-            if (x % 4 == 2)
-                this.rosco[x].estado = EstadoLetra.CORRECTA;
-            if (x % 4 == 3)
-                this.rosco[x].estado = EstadoLetra.INCORRECTA; */
-
       inner = inner + this.rosco[x].imprimirLetra(xpos, ypos);
     }
     return inner;
